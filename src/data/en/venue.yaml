@@ -1,7 +1,5 @@
-title: "Venue & Travel"
+title: "Location"
 subtitle: "How to find us"
-venue_name: "Venue Name"
-address: "Street, City, Country"
-maps_url: "https://maps.google.com"
-description: "A beautiful location for our special day. We look forward to welcoming you."
-travel_notes: "Details about parking, public transport, and nearby accommodation will follow here."
+venue_name: "Schloss Obermayerhofen"
+address: "Neustift bei Sebersdorf 1, 8272 Sebersdorf"
+venue_image: /images/venue.png
