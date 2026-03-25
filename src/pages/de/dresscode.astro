@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Dresscode from '../../components/Dresscode.astro';
+import { loadData } from '../../lib/data';
+
+const data = loadData<{
+  title: string;
+  dresscode: string;
+  description: string;
+  color_image?: string;
+}>('de', 'dresscode');
+---
+
+<BaseLayout title={data.title} lang="de">
+  <Dresscode {...data} />
+</BaseLayout>

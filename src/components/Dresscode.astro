@@ -1,0 +1,54 @@
+---
+interface Props {
+  title: string;
+  dresscode: string;
+  description: string;
+  color_image?: string;
+}
+const { title, dresscode, description, color_image } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const imageUrl = color_image ? `${base}${color_image}` : null;
+---
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">{title}</h2>
+    <div class="divider"></div>
+
+    <p class="dresscode-label">{dresscode}</p>
+    <p class="dresscode-desc">{description}</p>
+
+    {imageUrl && (
+      <div class="color-image-wrap">
+        <img src={imageUrl} alt="Dresscode color palette" class="color-image" />
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .dresscode-label {
+    font-family: var(--font-heading);
+    font-size: var(--size-3xl);
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: var(--space-md);
+  }
+
+  .dresscode-desc {
+    font-size: var(--size-base);
+    color: var(--color-muted);
+    max-width: 600px;
+    margin-bottom: var(--space-xl);
+  }
+
+  .color-image-wrap {
+    max-width: 900px;
+  }
+
+  .color-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-sm);
+  }
+</style>
