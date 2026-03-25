@@ -1,22 +1,17 @@
 # ============================================================
-#  Decap CMS Configuration
+#  Sveltia CMS Configuration
 #  Edit content at: https://<your-domain>/admin/
 #
 #  One-time setup:
-#  1. Create a GitHub OAuth App at:
-#     https://github.com/settings/developers
-#     - Homepage URL:  https://<username>.github.io/<repo>
-#     - Callback URL:  https://<username>.github.io/<repo>/admin/
-#  2. Paste your OAuth App Client ID below (replace GITHUB_CLIENT_ID)
-#  3. Enable GitHub Pages (source: GitHub Actions) in repo settings
+#  1. Enable GitHub Pages (source: GitHub Actions) in repo settings
+#  2. Visit /admin and sign in with a GitHub Personal Access Token
+#     (classic token, "repo" scope is sufficient)
 # ============================================================
 
 backend:
   name: github
-  repo: mofe23/wedding-planner   # ← change this
+  repo: mofe23/wedding-planner
   branch: main
-  auth_type: implicit
-  app_id: Ov23lipQ6bHyB7wbhlmO         # ← change this
 
 media_folder: "public/images"
 public_folder: "/images"
