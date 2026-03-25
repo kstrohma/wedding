@@ -16,10 +16,6 @@ const mapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${
 
 <section class="section">
   <div class="container">
-    <h2 class="section-title">{title}</h2>
-    <p class="section-subtitle">{subtitle}</p>
-    <div class="divider"></div>
-
     <div class="venue-top">
       {imageUrl && (
         <div class="venue-image-wrap">
@@ -27,7 +23,7 @@ const mapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${
         </div>
       )}
       <div class="venue-info">
-        <h3 class="venue-name">{venue_name}</h3>
+        <h2 class="venue-name">{venue_name}</h2>
         <p class="venue-address">{address}</p>
         <a href={mapsDirectionsUrl} target="_blank" rel="noopener noreferrer" class="directions-link">
           {directionsLabel} &rarr;
@@ -72,7 +68,7 @@ const mapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${
 
   .venue-name {
     font-family: var(--font-heading);
-    font-size: var(--size-2xl);
+    font-size: var(--size-3xl);
     font-weight: 400;
     margin-bottom: var(--space-sm);
   }
