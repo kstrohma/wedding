@@ -10,7 +10,7 @@
 
 backend:
   name: github
-  repo: mofe23/wedding-planner
+  repo: kstrohma/wedding
   branch: main
 
 media_folder: "public/images"
