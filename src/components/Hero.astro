@@ -9,8 +9,8 @@ interface Props {
 }
 const { partner1, partner2, date, intro, hero_image, lang } = Astro.props;
 const rsvpLabel = lang === 'en' ? 'RSVP' : 'RSVP';
-const rsvpHref = `/${lang}/rsvp/`;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const rsvpHref = `${base}/${lang}/rsvp/`;
 const heroImageUrl = hero_image ? `${base}${hero_image}` : null;
 ---
 

@@ -3,34 +3,35 @@ interface Props {
   lang: 'en' | 'de';
 }
 const { lang } = Astro.props;
+const base = import.meta.env.BASE_URL;
 
 const nav = {
   en: [
-    { label: 'Home',     href: '/en/' },
-    { label: 'Schedule',  href: '/en/schedule/' },
-    { label: 'Venue',     href: '/en/venue/' },
-    { label: 'Dresscode', href: '/en/dresscode/' },
-    { label: 'RSVP',      href: '/en/rsvp/' },
+    { label: 'Home',      href: `${base}en/` },
+    { label: 'Schedule',  href: `${base}en/schedule/` },
+    { label: 'Venue',     href: `${base}en/venue/` },
+    { label: 'Dresscode', href: `${base}en/dresscode/` },
+    { label: 'RSVP',      href: `${base}en/rsvp/` },
   ],
   de: [
-    { label: 'Start',    href: '/de/' },
-    { label: 'Ablauf',    href: '/de/schedule/' },
-    { label: 'Location',  href: '/de/venue/' },
-    { label: 'Dresscode', href: '/de/dresscode/' },
-    { label: 'RSVP',      href: '/de/rsvp/' },
+    { label: 'Start',     href: `${base}de/` },
+    { label: 'Ablauf',    href: `${base}de/schedule/` },
+    { label: 'Location',  href: `${base}de/venue/` },
+    { label: 'Dresscode', href: `${base}de/dresscode/` },
+    { label: 'RSVP',      href: `${base}de/rsvp/` },
   ],
 };
 
 const altLang = lang === 'en' ? 'de' : 'en';
 const altLabel = lang === 'en' ? 'DE' : 'EN';
-const altHref = lang === 'en' ? '/de/' : '/en/';
+const altHref = lang === 'en' ? `${base}de/` : `${base}en/`;
 
 const links = nav[lang];
 ---
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href={`/${lang}/`} class="site-brand">
+    <a href={`${base}${lang}/`} class="site-brand">
       <slot name="brand">&#9825;</slot>
     </a>
 
