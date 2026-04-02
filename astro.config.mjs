@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://kstrohma.github.io',
+  site: 'https://sarah-und-karl.info',
   base: '/',
   output: 'static',
   i18n: {
