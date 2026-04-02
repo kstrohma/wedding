@@ -1,10 +1,22 @@
 ---
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const target = `${base}/de/`;
+const validToken = import.meta.env.PUBLIC_AUTH_TOKEN;
 ---
-<meta http-equiv="refresh" content={`0; url=${target}`} />
-<script define:vars={{ target }}>
-  const params = new URLSearchParams(window.location.search);
-  const token = params.get('token');
-  window.location.replace(target + (token ? '?token=' + encodeURIComponent(token) : ''));
+<script define:vars={{ target, validToken }}>
+  (function () {
+    const LS_KEY = 'wedding_auth';
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token');
+
+    if (token && token === validToken) {
+      localStorage.setItem(LS_KEY, 'true');
+    }
+
+    if (localStorage.getItem(LS_KEY) === 'true') {
+      window.location.replace(target);
+    } else {
+      window.location.replace('/unauthorized');
+    }
+  })();
 </script>
