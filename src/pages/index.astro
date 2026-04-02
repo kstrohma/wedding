@@ -3,4 +3,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const target = `${base}/de/`;
 ---
 <meta http-equiv="refresh" content={`0; url=${target}`} />
-<script define:vars={{ target }}>window.location.replace(target);</script>
+<script define:vars={{ target }}>
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get('token');
+  window.location.replace(target + (token ? '?token=' + encodeURIComponent(token) : ''));
+</script>

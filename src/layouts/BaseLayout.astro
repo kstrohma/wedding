@@ -10,6 +10,7 @@ interface Props {
 }
 
 const { title, lang, description = '' } = Astro.props;
+const validToken = import.meta.env.PUBLIC_AUTH_TOKEN;
 ---
 
 <!doctype html>
@@ -20,6 +21,26 @@ const { title, lang, description = '' } = Astro.props;
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script define:vars={{ validToken }}>
+      (function () {
+        const LS_KEY = 'wedding_auth';
+        const params = new URLSearchParams(window.location.search);
+        const token = params.get('token');
+
+        if (token) {
+          if (token === validToken) {
+            localStorage.setItem(LS_KEY, 'true');
+          }
+          params.delete('token');
+          const newSearch = params.toString();
+          history.replaceState(null, '', window.location.pathname + (newSearch ? '?' + newSearch : '') + window.location.hash);
+        }
+
+        if (localStorage.getItem(LS_KEY) !== 'true') {
+          window.location.replace('/unauthorized');
+        }
+      })();
+    </script>
   </head>
   <body>
     <Header lang={lang} />
