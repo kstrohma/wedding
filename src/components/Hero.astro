@@ -93,7 +93,9 @@ const heroImageUrl = hero_image ? `${base}${hero_image}` : null;
     color: var(--color-white);
   }
 
-  @media (max-width: 600px) {
-    .hero-names { font-size: var(--size-3xl); }
+  @media (max-width: 640px) {
+    .hero-names { font-size: var(--size-2xl); }
+    .hero-overlay { padding-block: var(--space-xl); }
+    .hero-intro { max-width: 100%; }
   }
 </style>

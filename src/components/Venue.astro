@@ -104,6 +104,15 @@ const mapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${
   @media (max-width: 640px) {
     .venue-top {
       grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    .venue-name {
+      font-size: var(--size-2xl);
+    }
+
+    .map-wrap iframe {
+      height: 280px;
     }
   }
 </style>

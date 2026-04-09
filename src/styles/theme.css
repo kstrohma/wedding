@@ -122,3 +122,13 @@ h1, h2, h3, h4 {
   font-size: var(--size-lg);
   margin-bottom: var(--space-lg);
 }
+
+@media (max-width: 640px) {
+  .section {
+    padding-block: var(--space-xl);
+  }
+
+  .section-title {
+    font-size: var(--size-xl);
+  }
+}
