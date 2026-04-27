@@ -11,6 +11,14 @@ const { title, subtitle, venue_name, address, venue_image, lang } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const imageUrl = venue_image ? `${base}${venue_image}` : null;
 const directionsLabel = lang === 'en' ? 'Get directions' : 'Route berechnen';
+const accommodationsTitle = lang === 'en' ? 'Accommodation' : 'Unterkünfte';
+const accommodationsText = lang === 'en'
+  ? 'If you would like to stay overnight, there are several accommodation options nearby.'
+  : 'Falls Ihr übernachten wollt gibt es einige Unterkünfte in näherer Umgebung.';
+const shuttleTitle = lang === 'en' ? 'Shuttle Service' : 'Shuttleservice';
+const shuttleText = lang === 'en'
+  ? 'We will organise a shuttle service between the accommodation and the venue — a detailed timetable and further info will follow.'
+  : 'Wir werden einen Shuttleservice zwischen Unterkunft und Location einrichten, ein genauer Timetable und Infos kommen noch ;)';
 const mapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
 ---
 
@@ -45,8 +53,8 @@ const mapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${
     </div>
 
     <div class="accommodations">
-      <h3 class="accommodations-title">Unterkünfte</h3>
-      <p class="accommodations-text">Falls Ihr übernachten wollt gibt es einige Unterkünfte in näherer Umgebung.</p>
+      <h3 class="accommodations-title">{accommodationsTitle}</h3>
+      <p class="accommodations-text">{accommodationsText}</p>
       <ul class="hotel-list">
         <li><strong><a href="https://panoramahof.at/" target="_blank" rel="noopener noreferrer">panoramahof.at</a></strong></li>
         <li><strong><a href="https://www.fairpricehotel.at/" target="_blank" rel="noopener noreferrer">fairpricehotel.at</a></strong></li>
@@ -56,8 +64,8 @@ const mapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${
     </div>
 
     <div class="accommodations">
-      <h3 class="accommodations-title">Shuttleservice</h3>
-      <p class="accommodations-text">Wir werden einen Shuttleservice zwischen Unterkunft und Location einrichten, ein genauer Timetable und Infos kommen noch ;)</p>
+      <h3 class="accommodations-title">{shuttleTitle}</h3>
+      <p class="accommodations-text">{shuttleText}</p>
     </div>
   </div>
 </section>
