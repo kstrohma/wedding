@@ -16,8 +16,10 @@ const isPlaceholder = google_form_url.includes('PLACEHOLDER');
     <h2 class="section-title">{title}</h2>
     <p class="section-subtitle">{subtitle}</p>
     <div class="divider"></div>
-    <p class="rsvp-intro">{intro}</p>
-    <p class="rsvp-deadline">{deadline}</p>
+    <div class="rsvp-callout">
+      <p class="rsvp-deadline">{deadline}</p>
+      <p class="rsvp-intro">{intro}</p>
+    </div>
 
     {isPlaceholder ? (
       <div class="form-placeholder">
@@ -46,16 +48,26 @@ const isPlaceholder = google_form_url.includes('PLACEHOLDER');
     max-width: 700px;
   }
 
-  .rsvp-intro {
-    color: var(--color-muted);
-    margin-bottom: var(--space-xs);
+  .rsvp-callout {
+    background: linear-gradient(135deg, rgba(184,151,90,0.10) 0%, rgba(184,151,90,0.06) 100%);
+    border: 1.5px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    padding: var(--space-md) var(--space-lg);
+    margin-bottom: var(--space-lg);
+    text-align: center;
   }
 
   .rsvp-deadline {
-    font-size: var(--size-sm);
-    color: var(--color-accent);
-    margin-bottom: var(--space-lg);
-    font-style: italic;
+    font-family: var(--font-heading);
+    font-size: var(--size-xl);
+    color: var(--color-accent-dk);
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+  }
+
+  .rsvp-intro {
+    color: var(--color-muted);
+    margin-bottom: 0;
   }
 
   .form-wrapper {
