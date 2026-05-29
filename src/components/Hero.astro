@@ -23,8 +23,10 @@ const heroImageUrl = hero_image ? `${base}${hero_image}` : null;
       <p class="hero-date">{date}</p>
       <p class="hero-intro">{intro}</p>
       <div class="hero-cta-wrap">
-        {rsvpPreamble && <p class="hero-cta-preamble">{rsvpPreamble}</p>}
-        <a href={rsvpHref} class="hero-cta">{rsvpLabel}</a>
+        <div class="hero-rsvp-callout">
+          {rsvpPreamble && <p class="hero-cta-preamble">{rsvpPreamble}</p>}
+          <a href={rsvpHref} class="hero-cta">{rsvpLabel}</a>
+        </div>
       </div>
     </div>
   </div>
@@ -82,17 +84,26 @@ const heroImageUrl = hero_image ? `${base}${hero_image}` : null;
   }
 
   .hero-cta-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
     margin-top: var(--space-sm);
   }
 
+  .hero-rsvp-callout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    background: linear-gradient(135deg, rgba(184,151,90,0.13) 0%, rgba(184,151,90,0.07) 100%);
+    border: 1.5px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    padding: var(--space-md) var(--space-lg);
+  }
+
   .hero-cta-preamble {
-    font-size: var(--size-sm);
-    letter-spacing: 0.08em;
-    color: var(--color-muted);
+    font-family: var(--font-heading);
+    font-size: var(--size-xl);
+    font-weight: 600;
+    color: var(--color-accent-dk);
+    letter-spacing: 0.02em;
   }
 
   .hero-cta {
