@@ -19,13 +19,13 @@ const imageUrl = color_image ? `${base}${color_image}` : null;
     <p class="dresscode-label">{dresscode}</p>
     <p class="dresscode-desc">{description}</p>
 
+    {note && <p class="dresscode-note">{note}</p>}
+
     {imageUrl && (
       <div class="color-image-wrap">
         <img src={imageUrl} alt="Dresscode color palette" class="color-image" />
       </div>
     )}
-
-    {note && <p class="dresscode-note">{note}</p>}
   </div>
 </section>
 
@@ -59,7 +59,7 @@ const imageUrl = color_image ? `${base}${color_image}` : null;
     font-size: var(--size-base);
     color: var(--color-muted);
     max-width: 600px;
-    margin-top: var(--space-md);
+    margin-bottom: var(--space-md);
   }
 
   @media (max-width: 640px) {
