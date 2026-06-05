@@ -4,8 +4,9 @@ interface Props {
   dresscode: string;
   description: string;
   color_image?: string;
+  note?: string;
 }
-const { title, dresscode, description, color_image } = Astro.props;
+const { title, dresscode, description, color_image, note } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const imageUrl = color_image ? `${base}${color_image}` : null;
 ---
@@ -23,6 +24,8 @@ const imageUrl = color_image ? `${base}${color_image}` : null;
         <img src={imageUrl} alt="Dresscode color palette" class="color-image" />
       </div>
     )}
+
+    {note && <p class="dresscode-note">{note}</p>}
   </div>
 </section>
 
@@ -50,6 +53,13 @@ const imageUrl = color_image ? `${base}${color_image}` : null;
     width: 100%;
     height: auto;
     border-radius: var(--radius-sm);
+  }
+
+  .dresscode-note {
+    font-size: var(--size-base);
+    color: var(--color-muted);
+    max-width: 600px;
+    margin-top: var(--space-md);
   }
 
   @media (max-width: 640px) {
