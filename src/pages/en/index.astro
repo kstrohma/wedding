@@ -25,6 +25,7 @@ const title = `${home.partner1} & ${home.partner2}`;
   />
   <section class="song-section">
     <div class="container">
+      <p class="song-caption">Zur Einstimmung einer unserer gemeinsamen Songs ❤️</p>
       <div class="video-wrap">
         <iframe
           src="https://www.youtube.com/embed/6ThQkrXHdh4"
@@ -42,6 +43,15 @@ const title = `${home.partner1} & ${home.partner2}`;
   .song-section {
     padding-block: var(--space-2xl);
     background: var(--color-surface);
+  }
+
+  .song-caption {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: var(--size-xl);
+    font-weight: 400;
+    color: var(--color-muted);
+    margin-bottom: var(--space-lg);
   }
 
   .video-wrap {
