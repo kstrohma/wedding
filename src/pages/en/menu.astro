@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Menu from '../../components/Menu.astro';
+import { loadData } from '../../lib/data';
+
+const data = loadData<{
+  title: string;
+  subtitle?: string;
+  courses: { label: string; items: string[] }[];
+  form_intro?: string;
+  google_form_url: string;
+}>('en', 'menu');
+---
+
+<BaseLayout title={data.title} lang="en">
+  <Menu {...data} />
+</BaseLayout>

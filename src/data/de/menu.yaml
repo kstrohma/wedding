@@ -1,0 +1,25 @@
+title: "Hochzeitsmenü"
+subtitle: "Wählt eure Gänge aus"
+courses:
+  - label: "Vorspeise"
+    items:
+      - "Riesengarnele im Tempurateig auf Melonensalat, gebratener Parmaschinken, Zitronendip"
+      - "(Veggie) Champignontartare mit gegrilltem Soja-Tofu und Asia-Salat"
+  - label: "Suppe"
+    items:
+      - "Suppe vom Sauvignon Blanc mit Schwarzbrotknöderl und Rübenschaum"
+  - label: "Hauptspeisen"
+    items:
+      - "Fleisch: Kalbsfiletscheiben mit Rosmarinsauce und Rohschinkenbrösel, Erdäpfelbaumkuchen und Karottenstifte"
+      - "Fisch: Bachsaiblingsfilet pochiert auf geschmortem Fenchel, Rosmarinkartoffelspieß, Rübensauce"
+      - "Veggie: Steirische Kernölgnocchi mit Käse gefüllt, Schmortomaten, Petersilienschaum"
+  - label: "Dessert"
+    items:
+      - "Crème Brûlée von der Pistazie"
+      - "Topfen-Joghurtcreme im Baumkuchenmantel mit Erdbeergelee"
+      - "Vollmilchschokolade-Baileys-Tarte mit Banane (mit Alkohol)"
+  - label: "Mitternachtssnack"
+    items:
+      - "Überraschung ;)"
+form_intro: "Bitte stimmt unten ab, welche Gänge ihr genießen möchtet."
+google_form_url: "https://docs.google.com/forms/d/e/1FAIpQLSfiJFpTqJZGixlffCjsoavYDvu-k8SkQCoGQiuJq0Wgqvs4KQ/viewform?embedded=true"

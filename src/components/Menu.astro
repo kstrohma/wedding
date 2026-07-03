@@ -1,0 +1,133 @@
+---
+interface Course {
+  label: string;
+  items: string[];
+}
+interface Props {
+  title: string;
+  subtitle?: string;
+  courses: Course[];
+  form_intro?: string;
+  google_form_url: string;
+}
+const { title, subtitle, courses, form_intro, google_form_url } = Astro.props;
+
+const isPlaceholder = google_form_url.includes('PLACEHOLDER');
+---
+
+<section class="section">
+  <div class="container menu-container">
+    <h2 class="section-title">{title}</h2>
+    {subtitle && <p class="section-subtitle">{subtitle}</p>}
+    <div class="divider"></div>
+
+    <div class="menu-courses">
+      {courses.map(course => (
+        <div class="course">
+          <h3 class="course-label">{course.label}</h3>
+          <ul class="course-items">
+            {course.items.map(item => (
+              <li class="course-item">{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    {form_intro && <p class="menu-form-intro">{form_intro}</p>}
+
+    {isPlaceholder ? (
+      <div class="form-placeholder">
+        <p>Google Form not yet configured.<br />
+        Edit <code>src/data/[lang]/menu.yaml</code> and paste your Google Form embed URL.</p>
+      </div>
+    ) : (
+      <div class="form-wrapper">
+        <iframe
+          src={google_form_url}
+          width="100%"
+          height="800"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="Menu Form"
+          loading="lazy"
+        >Loading…</iframe>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .menu-container {
+    max-width: 700px;
+  }
+
+  .menu-courses {
+    margin-bottom: var(--space-xl);
+  }
+
+  .course {
+    margin-bottom: var(--space-lg);
+  }
+
+  .course-label {
+    font-family: var(--font-heading);
+    font-size: var(--size-2xl);
+    font-weight: 400;
+    color: var(--color-accent-dk);
+    margin-bottom: var(--space-sm);
+  }
+
+  .course-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .course-item {
+    font-size: var(--size-base);
+    color: var(--color-text);
+    padding-block: var(--space-xs);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .course-item:last-child {
+    border-bottom: none;
+  }
+
+  .menu-form-intro {
+    text-align: center;
+    color: var(--color-muted);
+    margin-bottom: var(--space-lg);
+  }
+
+  .form-wrapper {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .form-placeholder {
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-xl);
+    text-align: center;
+    color: var(--color-muted);
+  }
+
+  .form-placeholder code {
+    background: var(--color-surface);
+    padding: 0.1em 0.4em;
+    border-radius: var(--radius-sm);
+    font-size: var(--size-sm);
+  }
+
+  @media (max-width: 640px) {
+    .course-label {
+      font-size: var(--size-xl);
+    }
+    .form-wrapper iframe {
+      height: 600px;
+    }
+  }
+</style>
